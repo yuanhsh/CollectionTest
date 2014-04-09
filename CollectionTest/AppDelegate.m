@@ -7,12 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "ThumbnailViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    ThumbnailLayout *layout = [[ThumbnailLayout alloc] init];
+    ThumbnailViewController *tvc = [[ThumbnailViewController alloc] initWithCollectionViewLayout:layout];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:tvc];
+    self.navigationController.delegate = self;
+    self.navigationController.navigationBarHidden = YES;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							

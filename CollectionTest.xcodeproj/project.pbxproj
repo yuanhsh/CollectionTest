@@ -21,6 +21,7 @@
 		1C19A5AB18F5190D00CD997E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C19A58D18F5190C00CD997E /* UIKit.framework */; };
 		1C19A5B318F5190D00CD997E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C19A5B118F5190D00CD997E /* InfoPlist.strings */; };
 		1C19A5B518F5190D00CD997E /* CollectionTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C19A5B418F5190D00CD997E /* CollectionTestTests.m */; };
+		1C19A5C018F51A6C00CD997E /* ThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		1C19A5B018F5190D00CD997E /* CollectionTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CollectionTestTests-Info.plist"; sourceTree = "<group>"; };
 		1C19A5B218F5190D00CD997E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1C19A5B418F5190D00CD997E /* CollectionTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionTestTests.m; sourceTree = "<group>"; };
+		1C19A5BE18F51A6C00CD997E /* ThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailViewController.h; sourceTree = "<group>"; };
+		1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				1C19A59F18F5190C00CD997E /* ViewController.m */,
 				1C19A5A118F5190C00CD997E /* Images.xcassets */,
 				1C19A59018F5190C00CD997E /* Supporting Files */,
+				1C19A5BE18F51A6C00CD997E /* ThumbnailViewController.h */,
+				1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */,
 			);
 			path = CollectionTest;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				1C19A5A018F5190C00CD997E /* ViewController.m in Sources */,
 				1C19A59A18F5190C00CD997E /* AppDelegate.m in Sources */,
 				1C19A59618F5190C00CD997E /* main.m in Sources */,
+				1C19A5C018F51A6C00CD997E /* ThumbnailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
