@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C14591018F65438008AEEF9 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14590F18F65438008AEEF9 /* UIView+Snapshot.m */; };
 		1C19A58A18F5190C00CD997E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C19A58918F5190C00CD997E /* Foundation.framework */; };
 		1C19A58C18F5190C00CD997E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C19A58B18F5190C00CD997E /* CoreGraphics.framework */; };
 		1C19A58E18F5190C00CD997E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C19A58D18F5190C00CD997E /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C14590E18F65438008AEEF9 /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
+		1C14590F18F65438008AEEF9 /* UIView+Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Snapshot.m"; sourceTree = "<group>"; };
 		1C19A58618F5190C00CD997E /* CollectionTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C19A58918F5190C00CD997E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1C19A58B18F5190C00CD997E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,6 +127,8 @@
 				1C19A59018F5190C00CD997E /* Supporting Files */,
 				1C19A5BE18F51A6C00CD997E /* ThumbnailViewController.h */,
 				1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */,
+				1C14590E18F65438008AEEF9 /* UIView+Snapshot.h */,
+				1C14590F18F65438008AEEF9 /* UIView+Snapshot.m */,
 			);
 			path = CollectionTest;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 			files = (
 				1C19A5A018F5190C00CD997E /* ViewController.m in Sources */,
 				1C19A59A18F5190C00CD997E /* AppDelegate.m in Sources */,
+				1C14591018F65438008AEEF9 /* UIView+Snapshot.m in Sources */,
 				1C19A59618F5190C00CD997E /* main.m in Sources */,
 				1C19A5C018F51A6C00CD997E /* ThumbnailViewController.m in Sources */,
 			);
@@ -462,6 +468,7 @@
 				1C19A5BA18F5190D00CD997E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C19A5BB18F5190D00CD997E /* Build configuration list for PBXNativeTarget "CollectionTestTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +477,7 @@
 				1C19A5BD18F5190D00CD997E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

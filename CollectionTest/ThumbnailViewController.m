@@ -7,6 +7,7 @@
 //
 
 #import "ThumbnailViewController.h"
+#import "UIView+Snapshot.h"
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define CELL_ID @"CELL_ID"
@@ -94,10 +95,15 @@
 
 - (id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout
 {
-    if (self = [super initWithCollectionViewLayout:layout])
+    if (self = [super init])
     {
+        self.collectionView = [[UICollectionView alloc] initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:layout];
+        self.collectionView.dataSource = self;
+        self.collectionView.delegate = self;
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
         [self.collectionView setBackgroundColor:[UIColor clearColor]];
+        
+        [self.view addSubview:self.collectionView];
     }
     return self;
 }
@@ -141,9 +147,16 @@
 //         self.collectionView.decelerationRate = UIScrollViewDecelerationRateNormal;
 //    }
     if ([collectionView.collectionViewLayout class] == [ThumbnailLayout class]) {
-        ThumbnailViewController *vc = [[ThumbnailViewController alloc] initWithCollectionViewLayout:[DetailLayout new]];
-        vc.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
-        [self.navigationController pushViewController:vc animated:YES];
+        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+        CGRect frame = [collectionView convertRect:cell.frame toView:self.view];
+        UIImageView *snapshotView = [[UIImageView alloc] initWithFrame:frame];
+        snapshotView.image = [cell snapshotImage];
+        cell.hidden = YES;
+        [self.view addSubview:snapshotView];
+        
+//        ThumbnailViewController *vc = [[ThumbnailViewController alloc] initWithCollectionViewLayout:[DetailLayout new]];
+//        vc.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
+//        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
