@@ -20,10 +20,10 @@
 
 @end
 
-@interface ThumbnailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ThumbnailViewController : UICollectionViewController /*<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-- (id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout;
+- (id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout; */
 
 @end
