@@ -34,6 +34,7 @@
     self.delegate = self;
     self.animatedTransition = [ScaleAnimatedTransition new];
     self.navigationBarHidden = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {

@@ -59,7 +59,7 @@
 //        [self.view addSubview:self.collectionView];
         
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
-        [self.collectionView setBackgroundColor:[UIColor whiteColor]];
+        [self.collectionView setBackgroundColor:[UIColor blackColor]];
         
     }
     return self;
@@ -73,6 +73,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

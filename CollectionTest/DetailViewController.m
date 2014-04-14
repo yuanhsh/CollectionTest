@@ -64,6 +64,8 @@
 
 @interface DetailViewController ()
 
+@property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+
 @end
 
 @implementation DetailViewController
@@ -83,11 +85,13 @@
 
 - (id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout
 {
-    if (self = [super initWithCollectionViewLayout:layout])
+    if (self = [super init])
     {
-        [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
-        [self.collectionView setBackgroundColor:[UIColor blackColor]];
-        layout.itemSize = self.collectionView.frame.size;
+        self.layout = layout;
+        self.collectionView = [[UICollectionView alloc] initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:layout];
+        self.collectionView.dataSource = self;
+        self.collectionView.delegate = self;
+        [self.view addSubview:self.collectionView];
     }
     return self;
 }
@@ -100,6 +104,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
+    [self.collectionView setBackgroundColor:[UIColor blackColor]];
+    self.layout.itemSize = self.collectionView.frame.size;
     self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
 }
 

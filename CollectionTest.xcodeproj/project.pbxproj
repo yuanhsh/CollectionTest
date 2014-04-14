@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		1C14590E18F65438008AEEF9 /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
 		1C14590F18F65438008AEEF9 /* UIView+Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Snapshot.m"; sourceTree = "<group>"; };
+		1C15330518FBA0A300B75E6E /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		1C19A58618F5190C00CD997E /* CollectionTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C19A58918F5190C00CD997E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1C19A58B18F5190C00CD997E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +134,7 @@
 		1C19A58F18F5190C00CD997E /* CollectionTest */ = {
 			isa = PBXGroup;
 			children = (
+				1C15330518FBA0A300B75E6E /* Common.h */,
 				1C19A59818F5190C00CD997E /* AppDelegate.h */,
 				1C19A59918F5190C00CD997E /* AppDelegate.m */,
 				1C19A59B18F5190C00CD997E /* Main.storyboard */,

@@ -12,6 +12,10 @@
 
 @end
 
-@interface DetailViewController : UICollectionViewController
+@interface DetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+                                                             
+@property (nonatomic, strong) UICollectionView *collectionView;
+                                                             
+- (id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout;
 
 @end
