@@ -23,6 +23,11 @@
 		1C19A5B318F5190D00CD997E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C19A5B118F5190D00CD997E /* InfoPlist.strings */; };
 		1C19A5B518F5190D00CD997E /* CollectionTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C19A5B418F5190D00CD997E /* CollectionTestTests.m */; };
 		1C19A5C018F51A6C00CD997E /* ThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */; };
+		89A6937F18F97BE000861E7D /* BaseAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A6937D18F97BE000861E7D /* BaseAnimatedTransition.m */; };
+		89A6938218F97C6F00861E7D /* BaseInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A6938018F97C6F00861E7D /* BaseInteractiveTransition.m */; };
+		89A6938518F97DA100861E7D /* ScaleAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A6938418F97DA100861E7D /* ScaleAnimatedTransition.m */; };
+		89A6938818F9805C00861E7D /* ScaleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A6938618F9805C00861E7D /* ScaleNavigationController.m */; };
+		89A6938B18F9841600861E7D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A6938A18F9841600861E7D /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,16 @@
 		1C19A5B418F5190D00CD997E /* CollectionTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionTestTests.m; sourceTree = "<group>"; };
 		1C19A5BE18F51A6C00CD997E /* ThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailViewController.h; sourceTree = "<group>"; };
 		1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailViewController.m; sourceTree = "<group>"; };
+		89A6937D18F97BE000861E7D /* BaseAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAnimatedTransition.m; sourceTree = "<group>"; };
+		89A6937E18F97BE000861E7D /* BaseAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAnimatedTransition.h; sourceTree = "<group>"; };
+		89A6938018F97C6F00861E7D /* BaseInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInteractiveTransition.m; sourceTree = "<group>"; };
+		89A6938118F97C6F00861E7D /* BaseInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInteractiveTransition.h; sourceTree = "<group>"; };
+		89A6938318F97DA100861E7D /* ScaleAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleAnimatedTransition.h; sourceTree = "<group>"; };
+		89A6938418F97DA100861E7D /* ScaleAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleAnimatedTransition.m; sourceTree = "<group>"; };
+		89A6938618F9805C00861E7D /* ScaleNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleNavigationController.m; sourceTree = "<group>"; };
+		89A6938718F9805C00861E7D /* ScaleNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleNavigationController.h; sourceTree = "<group>"; };
+		89A6938918F9841600861E7D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		89A6938A18F9841600861E7D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +140,20 @@
 				1C19A59F18F5190C00CD997E /* ViewController.m */,
 				1C19A5A118F5190C00CD997E /* Images.xcassets */,
 				1C19A59018F5190C00CD997E /* Supporting Files */,
-				1C19A5BE18F51A6C00CD997E /* ThumbnailViewController.h */,
-				1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */,
 				1C14590E18F65438008AEEF9 /* UIView+Snapshot.h */,
 				1C14590F18F65438008AEEF9 /* UIView+Snapshot.m */,
+				89A6937E18F97BE000861E7D /* BaseAnimatedTransition.h */,
+				89A6937D18F97BE000861E7D /* BaseAnimatedTransition.m */,
+				89A6938318F97DA100861E7D /* ScaleAnimatedTransition.h */,
+				89A6938418F97DA100861E7D /* ScaleAnimatedTransition.m */,
+				89A6938118F97C6F00861E7D /* BaseInteractiveTransition.h */,
+				89A6938018F97C6F00861E7D /* BaseInteractiveTransition.m */,
+				89A6938718F9805C00861E7D /* ScaleNavigationController.h */,
+				89A6938618F9805C00861E7D /* ScaleNavigationController.m */,
+				1C19A5BE18F51A6C00CD997E /* ThumbnailViewController.h */,
+				1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */,
+				89A6938918F9841600861E7D /* DetailViewController.h */,
+				89A6938A18F9841600861E7D /* DetailViewController.m */,
 			);
 			path = CollectionTest;
 			sourceTree = "<group>";
@@ -259,11 +284,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A6938218F97C6F00861E7D /* BaseInteractiveTransition.m in Sources */,
 				1C19A5A018F5190C00CD997E /* ViewController.m in Sources */,
+				89A6938518F97DA100861E7D /* ScaleAnimatedTransition.m in Sources */,
+				89A6938818F9805C00861E7D /* ScaleNavigationController.m in Sources */,
 				1C19A59A18F5190C00CD997E /* AppDelegate.m in Sources */,
+				89A6938B18F9841600861E7D /* DetailViewController.m in Sources */,
 				1C14591018F65438008AEEF9 /* UIView+Snapshot.m in Sources */,
 				1C19A59618F5190C00CD997E /* main.m in Sources */,
 				1C19A5C018F51A6C00CD997E /* ThumbnailViewController.m in Sources */,
+				89A6937F18F97BE000861E7D /* BaseAnimatedTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +421,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CollectionTest/CollectionTest-Prefix.pch";
 				INFOPLIST_FILE = "CollectionTest/CollectionTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -404,6 +435,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CollectionTest/CollectionTest-Prefix.pch";
 				INFOPLIST_FILE = "CollectionTest/CollectionTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

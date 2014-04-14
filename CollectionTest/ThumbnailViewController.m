@@ -8,54 +8,10 @@
 
 #import "ThumbnailViewController.h"
 #import "UIView+Snapshot.h"
+#import "DetailViewController.h"
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define CELL_ID @"CELL_ID"
-
-@implementation DetailLayout
-
-- (id)init
-{
-    if (!(self = [super init])) return nil;
-    
-    self.itemSize = CGSizeMake(CGRectGetWidth([[UIScreen mainScreen] bounds]), CGRectGetHeight([[UIScreen mainScreen] bounds]));
-    self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.minimumInteritemSpacing = 10.0f;
-    self.minimumLineSpacing = 4.0f;
-    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    
-    return self;
-}
-
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)oldBounds
-{
-    return YES;
-}
-
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
-{
-    CGFloat offsetAdjustment = MAXFLOAT;
-    CGFloat horizontalCenter = proposedContentOffset.x + (CGRectGetWidth(self.collectionView.bounds) / 2.0);
-    
-    CGRect targetRect = CGRectMake(proposedContentOffset.x, 0.0, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
-    NSArray* array = [self layoutAttributesForElementsInRect:targetRect];
-    
-    for (UICollectionViewLayoutAttributes* layoutAttributes in array) {
-        if (layoutAttributes.representedElementCategory != UICollectionElementCategoryCell)
-            continue; // skip headers
-        
-        CGFloat itemHorizontalCenter = layoutAttributes.center.x;
-        if (ABS(itemHorizontalCenter - horizontalCenter) < ABS(offsetAdjustment)) {
-            offsetAdjustment = itemHorizontalCenter - horizontalCenter;
-            
-            layoutAttributes.alpha = 0;
-        }
-    }
-    return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y);
-}
-
-
-@end
 
 @implementation ThumbnailLayout
 
@@ -103,7 +59,7 @@
 //        [self.view addSubview:self.collectionView];
         
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
-        [self.collectionView setBackgroundColor:[UIColor clearColor]];
+        [self.collectionView setBackgroundColor:[UIColor whiteColor]];
         
     }
     return self;
@@ -111,13 +67,12 @@
 
 - (BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -140,25 +95,16 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 //    if ([collectionView.collectionViewLayout class] == [ThumbnailLayout class]) {
-//        [self.collectionView setCollectionViewLayout:[DetailLayout new] animated:YES];
-//        [self.collectionView.collectionViewLayout performSelector:@selector(invalidateLayout) withObject:nil afterDelay:0.4];
-//        self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
-//    } else {
-//        [self.collectionView setCollectionViewLayout:[ThumbnailLayout new] animated:YES];
-//         self.collectionView.decelerationRate = UIScrollViewDecelerationRateNormal;
+//        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//        CGRect frame = [collectionView convertRect:cell.frame toView:self.view];
+//        UIImageView *snapshotView = [[UIImageView alloc] initWithFrame:frame];
+//        snapshotView.image = [cell snapshotImage];
+//        cell.hidden = YES;
+//        [self.view addSubview:snapshotView];
 //    }
-    if ([collectionView.collectionViewLayout class] == [ThumbnailLayout class]) {
-        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-        CGRect frame = [collectionView convertRect:cell.frame toView:self.view];
-        UIImageView *snapshotView = [[UIImageView alloc] initWithFrame:frame];
-        snapshotView.image = [cell snapshotImage];
-        cell.hidden = YES;
-        [self.view addSubview:snapshotView];
-        
-//        ThumbnailViewController *vc = [[ThumbnailViewController alloc] initWithCollectionViewLayout:[DetailLayout new]];
-//        vc.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
-//        [self.navigationController pushViewController:vc animated:YES];
-    }
+    
+    DetailViewController *vc = [[DetailViewController alloc] initWithCollectionViewLayout:[DetailLayout new]];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

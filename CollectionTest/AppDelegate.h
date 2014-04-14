@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScaleNavigationController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate>
+#define ApplicationDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+@class BaseAnimatedTransition, BaseInteractiveTransition;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic) UINavigationController *navigationController;
+@property (strong, nonatomic) ScaleNavigationController *navigationController;
+//@property (strong, nonatomic) BaseAnimatedTransition *navigationAnimatedTransition;
+//@property (strong, nonatomic) BaseInteractiveTransition *navigationInteractiveTransition;
 
 @end

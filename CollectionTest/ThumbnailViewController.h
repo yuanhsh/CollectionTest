@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailLayout: UICollectionViewFlowLayout
 
-@end
 
 @interface ThumbnailLayout: UICollectionViewFlowLayout
 

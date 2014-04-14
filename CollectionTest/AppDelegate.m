@@ -15,9 +15,9 @@
 {
     ThumbnailLayout *layout = [[ThumbnailLayout alloc] init];
     ThumbnailViewController *tvc = [[ThumbnailViewController alloc] initWithCollectionViewLayout:layout];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:tvc];
-    self.navigationController.delegate = self;
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController = [[ScaleNavigationController alloc] initWithRootViewController:tvc];
+//    self.navigationController.delegate = self;
+//    self.navigationController.navigationBarHidden = YES;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.navigationController;
