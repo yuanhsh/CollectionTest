@@ -115,6 +115,12 @@
     } completion:^(BOOL finished) {
         thumbVC.selectedCell.alpha = 1.0;
         fromView.transform = CGAffineTransformIdentity;
+        
+        if ([transitionContext transitionWasCancelled]) {
+            thumbVC.selectedCell.alpha = 0.0;
+            toView.transform = CGAffineTransformIdentity;
+        }
+        
         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
     }];
 

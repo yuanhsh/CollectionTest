@@ -10,9 +10,9 @@
 #import "BaseAnimatedTransition.h"
 #import "BaseInteractiveTransition.h"
 
-@interface ScaleNavigationController : UINavigationController
+@interface ScaleNavigationController : UINavigationController <UINavigationControllerDelegate>
 
 @property (strong, nonatomic) BaseAnimatedTransition *animatedTransition;
-@property (strong, nonatomic) BaseInteractiveTransition *interactiveTransition;
+@property (strong, nonatomic) BaseInteractiveTransition *navigationControllerInteractionController;
 
 @end

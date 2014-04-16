@@ -28,6 +28,7 @@
 		89A6938518F97DA100861E7D /* ScaleAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A6938418F97DA100861E7D /* ScaleAnimatedTransition.m */; };
 		89A6938818F9805C00861E7D /* ScaleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A6938618F9805C00861E7D /* ScaleNavigationController.m */; };
 		89A6938B18F9841600861E7D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A6938A18F9841600861E7D /* DetailViewController.m */; };
+		89C924D418FEC4560080F0EB /* SwipeInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C924D218FEC4560080F0EB /* SwipeInteractiveTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		89A6938718F9805C00861E7D /* ScaleNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleNavigationController.h; sourceTree = "<group>"; };
 		89A6938918F9841600861E7D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		89A6938A18F9841600861E7D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		89C924D218FEC4560080F0EB /* SwipeInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeInteractiveTransition.m; sourceTree = "<group>"; };
+		89C924D318FEC4560080F0EB /* SwipeInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeInteractiveTransition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 				89A6938418F97DA100861E7D /* ScaleAnimatedTransition.m */,
 				89A6938118F97C6F00861E7D /* BaseInteractiveTransition.h */,
 				89A6938018F97C6F00861E7D /* BaseInteractiveTransition.m */,
+				89C924D318FEC4560080F0EB /* SwipeInteractiveTransition.h */,
+				89C924D218FEC4560080F0EB /* SwipeInteractiveTransition.m */,
 				89A6938718F9805C00861E7D /* ScaleNavigationController.h */,
 				89A6938618F9805C00861E7D /* ScaleNavigationController.m */,
 				1C19A5BE18F51A6C00CD997E /* ThumbnailViewController.h */,
@@ -296,6 +301,7 @@
 				1C19A59618F5190C00CD997E /* main.m in Sources */,
 				1C19A5C018F51A6C00CD997E /* ThumbnailViewController.m in Sources */,
 				89A6937F18F97BE000861E7D /* BaseAnimatedTransition.m in Sources */,
+				89C924D418FEC4560080F0EB /* SwipeInteractiveTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

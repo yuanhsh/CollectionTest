@@ -103,10 +103,7 @@
 //        [self.view addSubview:snapshotView];
 //    }
     self.selectedCell = [collectionView cellForItemAtIndexPath:indexPath];
-//    self.selectedAttributes = [collectionView layoutAttributesForItemAtIndexPath:indexPath];
     self.selectedFrame = [collectionView convertRect:self.selectedCell.frame toView:self.view];
-    
-//    NSLog(@"%@ - %@", NSStringFromCGRect(self.selectedFrame), NSStringFromCGRect(self.selectedAttributes.frame));
     
     DetailViewController *vc = [[DetailViewController alloc] initWithCollectionViewLayout:[DetailLayout new]];
     [self.navigationController pushViewController:vc animated:YES];
