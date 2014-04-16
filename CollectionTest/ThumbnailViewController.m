@@ -7,7 +7,6 @@
 //
 
 #import "ThumbnailViewController.h"
-#import "UIView+Snapshot.h"
 #import "DetailViewController.h"
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
@@ -103,6 +102,8 @@
 //        cell.hidden = YES;
 //        [self.view addSubview:snapshotView];
 //    }
+    self.selectedCell = [collectionView cellForItemAtIndexPath:indexPath];
+    self.selectedAttributes = [collectionView layoutAttributesForItemAtIndexPath:indexPath];
     
     DetailViewController *vc = [[DetailViewController alloc] initWithCollectionViewLayout:[DetailLayout new]];
     [self.navigationController pushViewController:vc animated:YES];

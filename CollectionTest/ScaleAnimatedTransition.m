@@ -14,6 +14,8 @@
 - (void)executeForwardsAnimation:(id<UIViewControllerContextTransitioning>)transitionContext fromVC:(UIViewController *)fromVC toVC:(UIViewController *)toVC fromView:(UIView *)fromView toView:(UIView *)toView {
     
     UIView* containerView = [transitionContext containerView];
+    ThumbnailViewController *thumbVC = (ThumbnailViewController *)fromVC;
+    
     
     CGSize size = toView.frame.size;
     
@@ -21,16 +23,29 @@
     blackMask.backgroundColor = [UIColor blackColor];
     blackMask.alpha = 0.0;
     blackMask.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [containerView addSubview:blackMask];
+//    [containerView addSubview:blackMask];
+    
+//    UIImageView *snapshotView = [[UIImageView alloc] initWithFrame:thumbVC.selectedAttributes.frame];
+//    snapshotView.image = [thumbVC.selectedCell snapshotImage];
+//    [containerView addSubview:snapshotView];
+//    snapshotView.alpha = 1;
+    
+    //toView.alpha = 0.0f;
+    
     [containerView addSubview:toView];
     
-    NSMutableArray *snapshots = [NSMutableArray new];
+    CGFloat xFactor = CGRectGetWidth(thumbVC.selectedAttributes.frame) / CGRectGetWidth(toView.frame);
+    CGFloat yFactor = CGRectGetHeight(thumbVC.selectedAttributes.frame) / CGRectGetHeight(toView.frame);
     
-    CGFloat xFactor = 10.0f;
-    CGFloat yFactor = xFactor * size.height / size.width;
+    CGPoint startCenter = thumbVC.selectedAttributes.center;
+    CGFloat xTranslate = startCenter.x - toView.center.x;
+    CGFloat yTranslate = startCenter.y - toView.center.y;
+    
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(xTranslate, yTranslate);
+    toView.transform = CGAffineTransformScale(transform, xFactor, yFactor);
     
     // snapshot the from view, this makes subsequent snaphots more performant
-    UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
+//    UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:NO];
     
     // create a snapshot for each of the exploding pieces
 //    for (CGFloat x=0; x < size.width; x+= size.width / xFactor) {
@@ -44,13 +59,16 @@
 //    }
     
 //    [containerView sendSubviewToBack:fromView];
-    toView.transform = CGAffineTransformMakeScale(0.1, 0.1);
+//    thumbVC.selectedCell.hidden = YES;
     // animate
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     [UIView animateWithDuration:duration animations:^{
         toView.transform = CGAffineTransformIdentity;
-        fromView.transform = CGAffineTransformMakeScale(0.9, 0.9);
-        fromView.alpha = 0.1;
+        fromView.transform = CGAffineTransformMakeScale(0.95, 0.95);
+        fromView.alpha = 0.7;
+        toView.alpha = 1.0;
+        thumbVC.selectedCell.alpha = 0.0;
+//        snapshotView.alpha = 0;
 //        for (UIView *view in snapshots) {
 //            CGFloat xOffset = [self randomFloatBetween:-100.0 and:100.0];
 //            CGFloat yOffset = [self randomFloatBetween:-100.0 and:100.0];
@@ -59,9 +77,7 @@
 //            view.transform = CGAffineTransformScale(CGAffineTransformMakeRotation([self randomFloatBetween:-10.0 and:10.0]), 0.0, 0.0);
 //        }
     } completion:^(BOOL finished) {
-        for (UIView *view in snapshots) {
-            [view removeFromSuperview];
-        }
+
         fromView.transform = CGAffineTransformIdentity;
         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
     }];
@@ -70,6 +86,7 @@
 
 -(void)executeReverseAnimation:(id<UIViewControllerContextTransitioning>)transitionContext fromVC:(UIViewController *)fromVC toVC:(UIViewController *)toVC fromView:(UIView *)fromView toView:(UIView *)toView {
     UIView* containerView = [transitionContext containerView];
+     ThumbnailViewController *thumbVC = (ThumbnailViewController *)toVC;
     
     CGSize size = toView.frame.size;
     
@@ -79,11 +96,38 @@
 //    blackMask.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 //    [containerView addSubview:blackMask];
     [containerView addSubview:toView];
+    [containerView sendSubviewToBack:toView];
+    
+    CGPoint startCenter = thumbVC.selectedAttributes.center;
+    CGFloat xTranslate =  startCenter.x - fromView.center.x;
+    CGFloat yTranslate = startCenter.y - fromView.center.y;
+    CGFloat xFactor = CGRectGetWidth(thumbVC.selectedAttributes.frame) / CGRectGetWidth(toView.frame);
+    CGFloat yFactor = CGRectGetHeight(thumbVC.selectedAttributes.frame) / CGRectGetHeight(toView.frame);
+    
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(xTranslate, yTranslate);
+    transform = CGAffineTransformScale(transform, xFactor, yFactor);
+    
+    toView.transform = CGAffineTransformMakeScale(0.95, 0.95);
+    
+    NSTimeInterval duration = [self transitionDuration:transitionContext];
+    [UIView animateWithDuration:duration animations:^{
+        
+        fromView.transform = transform;
+        fromView.alpha = 1.0;
+        toView.alpha = 1.0;
+        toView.transform = CGAffineTransformIdentity;
+        thumbVC.selectedCell.alpha = 0.5;
+
+    } completion:^(BOOL finished) {
+        thumbVC.selectedCell.alpha = 1.0;
+        fromView.transform = CGAffineTransformIdentity;
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+    }];
 
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return .5;
+    return 0.5;
 }
 
 - (float)randomFloatBetween:(float)smallNumber and:(float)bigNumber {

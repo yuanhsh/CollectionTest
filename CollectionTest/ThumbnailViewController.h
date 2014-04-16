@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
+#import "UIView+Snapshot.h"
 
 @interface ThumbnailLayout: UICollectionViewFlowLayout
 
@@ -23,5 +22,9 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 - (id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout; */
+
+@property (nonatomic, strong) UICollectionViewCell *selectedCell;
+
+@property (nonatomic, strong) UICollectionViewLayoutAttributes *selectedAttributes;
 
 @end
