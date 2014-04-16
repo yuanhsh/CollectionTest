@@ -16,9 +16,6 @@
     UIView* containerView = [transitionContext containerView];
     ThumbnailViewController *thumbVC = (ThumbnailViewController *)fromVC;
     
-    
-    CGSize size = toView.frame.size;
-    
     UIView *blackMask = [[UIView alloc] initWithFrame:fromView.frame];
     blackMask.backgroundColor = [UIColor blackColor];
     blackMask.alpha = 0.0;
@@ -34,12 +31,11 @@
     
     [containerView addSubview:toView];
     
-    CGFloat xFactor = CGRectGetWidth(thumbVC.selectedAttributes.frame) / CGRectGetWidth(toView.frame);
-    CGFloat yFactor = CGRectGetHeight(thumbVC.selectedAttributes.frame) / CGRectGetHeight(toView.frame);
-    
-    CGPoint startCenter = thumbVC.selectedAttributes.center;
+    CGPoint startCenter = [self getPointFromFrame:thumbVC.selectedFrame];;
     CGFloat xTranslate = startCenter.x - toView.center.x;
     CGFloat yTranslate = startCenter.y - toView.center.y;
+    CGFloat xFactor = CGRectGetWidth(thumbVC.selectedFrame) / CGRectGetWidth(toView.frame);
+    CGFloat yFactor = CGRectGetHeight(thumbVC.selectedFrame) / CGRectGetHeight(toView.frame);
     
     CGAffineTransform transform = CGAffineTransformMakeTranslation(xTranslate, yTranslate);
     toView.transform = CGAffineTransformScale(transform, xFactor, yFactor);
@@ -88,8 +84,6 @@
     UIView* containerView = [transitionContext containerView];
      ThumbnailViewController *thumbVC = (ThumbnailViewController *)toVC;
     
-    CGSize size = toView.frame.size;
-    
 //    UIView *blackMask = [[UIView alloc] initWithFrame:fromView.frame];
 //    blackMask.backgroundColor = [UIColor blackColor];
 //    blackMask.alpha = 0.0;
@@ -98,11 +92,11 @@
     [containerView addSubview:toView];
     [containerView sendSubviewToBack:toView];
     
-    CGPoint startCenter = thumbVC.selectedAttributes.center;
+    CGPoint startCenter = [self getPointFromFrame:thumbVC.selectedFrame];
     CGFloat xTranslate =  startCenter.x - fromView.center.x;
     CGFloat yTranslate = startCenter.y - fromView.center.y;
-    CGFloat xFactor = CGRectGetWidth(thumbVC.selectedAttributes.frame) / CGRectGetWidth(toView.frame);
-    CGFloat yFactor = CGRectGetHeight(thumbVC.selectedAttributes.frame) / CGRectGetHeight(toView.frame);
+    CGFloat xFactor = CGRectGetWidth(thumbVC.selectedFrame) / CGRectGetWidth(toView.frame);
+    CGFloat yFactor = CGRectGetHeight(thumbVC.selectedFrame) / CGRectGetHeight(toView.frame);
     
     CGAffineTransform transform = CGAffineTransformMakeTranslation(xTranslate, yTranslate);
     transform = CGAffineTransformScale(transform, xFactor, yFactor);
@@ -126,8 +120,14 @@
 
 }
 
+- (CGPoint)getPointFromFrame:(CGRect)frame {
+    CGFloat x = frame.origin.x + frame.size.width / 2.0f;
+    CGFloat y = frame.origin.y + frame.size.height / 2.0f;
+    return CGPointMake(x, y);
+}
+
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.5;
+    return 0.3;
 }
 
 - (float)randomFloatBetween:(float)smallNumber and:(float)bigNumber {

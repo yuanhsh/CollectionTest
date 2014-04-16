@@ -25,6 +25,8 @@
 
 @property (nonatomic, strong) UICollectionViewCell *selectedCell;
 
-@property (nonatomic, strong) UICollectionViewLayoutAttributes *selectedAttributes;
+//@property (nonatomic, strong) UICollectionViewLayoutAttributes *selectedAttributes;
+
+@property (nonatomic, assign) CGRect selectedFrame;
 
 @end
