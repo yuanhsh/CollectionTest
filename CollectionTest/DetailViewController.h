@@ -12,9 +12,13 @@
 
 @end
 
-@interface DetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface DetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIWebViewDelegate> {
+    BOOL isLoading;
+}
                                                              
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
                                                              
 - (id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout;
 

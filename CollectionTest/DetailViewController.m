@@ -11,6 +11,7 @@
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 #define CELL_ID @"CELL_ID"
+#define kIndicatorViewTag 108
 
 @implementation DetailLayout
 
@@ -104,7 +105,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.edgesForExtendedLayout=UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars=NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
     [self.collectionView setBackgroundColor:[UIColor blackColor]];
     self.layout.itemSize = self.collectionView.frame.size;
@@ -130,7 +135,77 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    self.webView.delegate = self;
+    self.webView.hidden = YES;
+    [self.view addSubview:self.webView];
+    
+    //创建UIActivityIndicatorView背底半透明View
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 32.0f, 32.0f)];
+    view.userInteractionEnabled = YES;
+    UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(indicatorDragged:)];
+	[view addGestureRecognizer:gesture];
+    [view setTag:kIndicatorViewTag];
+    [view setBackgroundColor:[UIColor blackColor]];
+    [view setAlpha:0.3];
+    view.layer.cornerRadius = 5.0f;
+    view.clipsToBounds = YES;
+    [self.view addSubview:view];
+    
+    self.indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+//    [self.indicatorView setCenter:view.center];
+    [self.indicatorView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [view addSubview:self.indicatorView];
+    
+    NSString *path = @"http://blog.sina.com.cn/s/blog_46f079f80101g3yt.html";
+    NSURL *url = [NSURL URLWithString:path];
+    isLoading = YES;
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+- (void)indicatorDragged:(UIPanGestureRecognizer *)gesture
+{
+	UIView *view = (UILabel *)gesture.view;
+	CGPoint translation = [gesture translationInView:view];
+	// move view
+	view.center = CGPointMake(view.center.x + translation.x, view.center.y + translation.y);
+	// reset translation
+	[gesture setTranslation:CGPointZero inView:view];
+}
+
+- (void) webViewDidStartLoad:(UIWebView *)webView
+{
+    NSLog(@"webViewDidStartLoad");
+    [self.indicatorView startAnimating];
+}
+
+- (void) webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSLog(@"webViewDidFinishLoad");
+    if (isLoading) {
+        isLoading = NO;
+        [self.indicatorView stopAnimating];
+        UIView *view = (UIView*)[self.view viewWithTag:kIndicatorViewTag];
+        [view removeFromSuperview];
+        
+        CATransform3D transform = CATransform3DMakeScale(0.01, 0.01, 1);
+        self.webView.layer.transform = transform;
+        [UIView animateWithDuration:0.2f animations:^{
+            self.webView.layer.transform = CATransform3DIdentity;
+            self.webView.hidden = NO;
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+    
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self.indicatorView stopAnimating];
+    UIView *view = (UIView*)[self.view viewWithTag:kIndicatorViewTag];
+    [view removeFromSuperview];
+    NSLog(@"didFailLoadWithError");
 }
 
 @end

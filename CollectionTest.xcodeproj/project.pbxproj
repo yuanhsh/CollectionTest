@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C14591018F65438008AEEF9 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14590F18F65438008AEEF9 /* UIView+Snapshot.m */; };
+		1C17D2FA1908F81D00266228 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C17D2F91908F81D00266228 /* WebViewController.m */; };
 		1C19A58A18F5190C00CD997E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C19A58918F5190C00CD997E /* Foundation.framework */; };
 		1C19A58C18F5190C00CD997E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C19A58B18F5190C00CD997E /* CoreGraphics.framework */; };
 		1C19A58E18F5190C00CD997E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C19A58D18F5190C00CD997E /* UIKit.framework */; };
@@ -45,6 +46,8 @@
 		1C14590E18F65438008AEEF9 /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
 		1C14590F18F65438008AEEF9 /* UIView+Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Snapshot.m"; sourceTree = "<group>"; };
 		1C15330518FBA0A300B75E6E /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		1C17D2F81908F81D00266228 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		1C17D2F91908F81D00266228 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		1C19A58618F5190C00CD997E /* CollectionTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C19A58918F5190C00CD997E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1C19A58B18F5190C00CD997E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,8 @@
 				1C19A5BF18F51A6C00CD997E /* ThumbnailViewController.m */,
 				89A6938918F9841600861E7D /* DetailViewController.h */,
 				89A6938A18F9841600861E7D /* DetailViewController.m */,
+				1C17D2F81908F81D00266228 /* WebViewController.h */,
+				1C17D2F91908F81D00266228 /* WebViewController.m */,
 			);
 			path = CollectionTest;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				1C19A59A18F5190C00CD997E /* AppDelegate.m in Sources */,
 				89A6938B18F9841600861E7D /* DetailViewController.m in Sources */,
 				1C14591018F65438008AEEF9 /* UIView+Snapshot.m in Sources */,
+				1C17D2FA1908F81D00266228 /* WebViewController.m in Sources */,
 				1C19A59618F5190C00CD997E /* main.m in Sources */,
 				1C19A5C018F51A6C00CD997E /* ThumbnailViewController.m in Sources */,
 				89A6937F18F97BE000861E7D /* BaseAnimatedTransition.m in Sources */,
