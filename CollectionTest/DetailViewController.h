@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVModalWebViewController.h"
 
 @interface DetailLayout: UICollectionViewFlowLayout
 
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
+@property (nonatomic, strong) SVModalWebViewController *webVC;
+
                                                              
 - (id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout;
 

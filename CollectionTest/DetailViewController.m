@@ -136,10 +136,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 //    [self.navigationController popViewControllerAnimated:YES];
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-    self.webView.delegate = self;
-    self.webView.hidden = YES;
-    [self.view addSubview:self.webView];
+//    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+//    self.webView.delegate = self;
+//    self.webView.hidden = YES;
+//    [self.view addSubview:self.webView];
+    
     
     //创建UIActivityIndicatorView背底半透明View
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 32.0f, 32.0f)];
@@ -158,10 +159,14 @@
     [self.indicatorView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
     [view addSubview:self.indicatorView];
     
-    NSString *path = @"http://blog.sina.com.cn/s/blog_46f079f80101g3yt.html";
+    NSString *path = @"http://www.google.com";
     NSURL *url = [NSURL URLWithString:path];
     isLoading = YES;
-    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    self.webVC = [[SVModalWebViewController alloc] initWithURL:url delegate:self];
+    self.webVC.view.hidden = YES;
+    [self.view addSubview:self.webVC.view];
+    [self addChildViewController:self.webVC];
+//    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)indicatorDragged:(UIPanGestureRecognizer *)gesture
@@ -189,13 +194,15 @@
         UIView *view = (UIView*)[self.view viewWithTag:kIndicatorViewTag];
         [view removeFromSuperview];
         
+//        [self presentViewController:self.webVC animated:YES completion:nil];
         CATransform3D transform = CATransform3DMakeScale(0.01, 0.01, 1);
-        self.webView.layer.transform = transform;
+        UIView *target = self.webVC.view; //self.webView
+        target.layer.transform = transform;
         [UIView animateWithDuration:0.2f animations:^{
-            self.webView.layer.transform = CATransform3DIdentity;
-            self.webView.hidden = NO;
+            target.layer.transform = CATransform3DIdentity;
+            target.hidden = NO;
         } completion:^(BOOL finished) {
-            
+            [self.webVC didMoveToParentViewController:self];
         }];
     }
     
